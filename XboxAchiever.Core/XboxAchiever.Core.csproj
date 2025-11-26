@@ -96,13 +96,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Games\FinalFantasyIX.cs" />
+    <Compile Include="Games\HaloMCC.cs" />
     <Compile Include="XboxAchiever.cs" />
     <Compile Include="Games\BaseClasses\Game.cs" />
     <Compile Include="Games\BaseClasses\PcGame.cs" />
     <Compile Include="Games\BaseClasses\XboxGame.cs" />
-    <Compile Include="Games\FinalFantasyIX\FinalFantasyIX.cs" />
-    <Compile Include="Games\FinalFantasyIX\KeyLogger.cs" />
-    <Compile Include="Games\FinalFantasyIX\ScreenWatcher.cs" />
     <Compile Include="Games\PhantasyStarOnline2.cs" />
     <Compile Include="Games\SpeedRunners.cs" />
     <Compile Include="Games\SuperBomberman.cs" />
@@ -113,9 +112,6 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Games\FinalFantasyIX\exclamation_mark.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

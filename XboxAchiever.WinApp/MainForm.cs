@@ -17,7 +17,6 @@ namespace XboxStreamingIdleBoosting
 
 		protected override void OnFormClosing(FormClosingEventArgs e)
 		{
-			this.xboxAchiever.KeyLogger?.Terminate();
 			base.OnFormClosing(e);
 		}
 
@@ -41,29 +40,9 @@ namespace XboxStreamingIdleBoosting
 			this.xboxAchiever.Stop();
 		}
 
-		private void resetKeyLoggerButton_Click(object sender, EventArgs e)
-		{
-			this.xboxAchiever.KeyLogger?.Reset();
-		}
-
 		private void copyToClipboardLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
 			Clipboard.SetText(logTextBox.Text);
-		}
-
-		private void keyLoggerCheckBox_CheckedChanged(object sender, EventArgs e)
-		{
-			resetKeyLoggerButton.Visible = keyLoggerCheckBox.Checked;
-
-			if (keyLoggerCheckBox.Checked)
-			{
-				this.xboxAchiever.KeyLogger.Initialize();
-			}
-			else
-			{
-				this.xboxAchiever.KeyLogger.Reset();
-				this.xboxAchiever.KeyLogger.Terminate();
-			}
 		}
 
 		private void AddLog(string text)

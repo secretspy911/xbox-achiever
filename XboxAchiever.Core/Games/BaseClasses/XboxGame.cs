@@ -10,6 +10,6 @@ namespace XboxAchiever.Core.Games
     {
         public XboxGame(CancellationToken cancellationToken) : base(cancellationToken) { }
 
-        protected override string GameWindowName => "Compagnon de la console Xbox";
+        protected override string GameWindowName => "Xbox";
     }
 }

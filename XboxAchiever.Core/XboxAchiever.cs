@@ -11,8 +11,9 @@ namespace XboxAchiever.Core
 			SuperBomberManRDestroyBlocks = 0,
 			FinalFantasyIXLevel99 = 1,
 			PhantasyStarOnline2 = 2,
-			SpeedRunners = 3
-		}
+			SpeedRunners = 3,
+            HaloMCCWins = 4
+        }
 
 		public delegate void LogEventHandler(string message);
 		public event LogEventHandler Log;
@@ -22,19 +23,12 @@ namespace XboxAchiever.Core
 		private CancellationToken cancellationToken;
 
 		// TODO Make settings configurable by user
-		private const ScriptType scriptType = ScriptType.FinalFantasyIXLevel99;
+		private const ScriptType scriptType = ScriptType.HaloMCCWins;
 
 		public bool UseKeyLogger { get; set; }
-		public KeyLogger KeyLogger;
 
 		public void Start(bool logInputs)
 		{
-			if (UseKeyLogger)
-			{
-				KeyLogger = new KeyLogger();
-				KeyLogger.Initialize();
-			}
-
 			cancellationTokenSource = new CancellationTokenSource();
 			cancellationToken = cancellationTokenSource.Token;
 			Game game = null;
@@ -53,7 +47,10 @@ namespace XboxAchiever.Core
 				case ScriptType.SpeedRunners:
 					game = new SpeedRunners(cancellationToken);
 					break;
-			}
+				case ScriptType.HaloMCCWins:
+                    game = new HaloMCC(cancellationToken);
+                    break;
+            }
 
 			if (game != null)
 			{
